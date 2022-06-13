@@ -1,0 +1,19 @@
+body{
+    background-color: #fefae0;
+    display: flex;
+}
+.header{
+    text-align: center;
+    background-color: #e9edc9;
+    justify-content: center;
+    align-items: center;
+    width : 100vw;
+    height: 5vW;
+    display: flex;
+}
+h1{
+    text-align: center;
+    justify-content: center;
+    color: #283618;
+    font-size: 5vh;
+}

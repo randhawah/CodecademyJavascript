@@ -1,13 +1,14 @@
 console.log("Hello World!");
 
+//computer picks rock/paper/scissor
 function computerPlay(){
-    console.log("Computer's turn!");
     const choice = ["Rock", "Paper", "Scissor"];
     let intChoice = Math.floor((Math.random() * 3));
     let computerChoice = choice[intChoice].toLowerCase();
     return computerChoice;
 }
 
+//play single round of rock paper scissor
 function playRound(player, computer){
     console.log("Player choice : " + player);
     console.log("Computer choice : " + computer);
@@ -54,7 +55,7 @@ function playRound(player, computer){
         return arrayFromArgs(user, cpu, draw);
 }
 
-
+//return round results as an array
 function arrayFromArgs() {
     var results = [];
     for (var i = 0; i < arguments.length; i++) {
@@ -63,9 +64,8 @@ function arrayFromArgs() {
     return results;
 }
 
-
+//play rock/paper/scissor 5 times and declare the winner
 function game(){
-//let score = new Array();
 let wins = 0;
 let looses = 0;
 let draws = 0;
@@ -84,16 +84,9 @@ let draws = 0;
     console.log("Draws : " + draws);
 
 
-    if(wins>looses){
-        console.log("");
-        console.log("Congratulations, you WIN!!");
-    }
-    else if(wins<looses){
-        console.log("Sorry you LOOSE!!");
-    }
-    else{
-        console.log("It was a DRAW!!");
-    }
+    (wins > looses) ? console.log("Congratulations, you WIN!!")
+    : (wins<looses) ? console.log("Sorry you LOOSE!!")
+    : console.log("It was a DRAW!!");
 
 }
     

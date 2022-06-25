@@ -1,4 +1,5 @@
-console.log("Hello World!");
+console.log("-------------Lets Play Rock, Paper, Scissor!-------------");
+console.log(" ");
 
 //computer picks rock/paper/scissor
 function computerPlay(){
@@ -57,8 +58,8 @@ function playRound(player, computer){
 
 //return round results as an array
 function arrayFromArgs() {
-    var results = [];
-    for (var i = 0; i < arguments.length; i++) {
+    let results = [];
+    for (let i = 0; i < arguments.length; i++) {
         results.push(arguments[i]);
     }
     return results;
@@ -85,7 +86,7 @@ let draws = 0;
 
 
     (wins > looses) ? console.log("Congratulations, you WIN!!")
-    : (wins<looses) ? console.log("Sorry you LOOSE!!")
+    : (wins < looses) ? console.log("Sorry, you LOOSE!!")
     : console.log("It was a DRAW!!");
 
 }

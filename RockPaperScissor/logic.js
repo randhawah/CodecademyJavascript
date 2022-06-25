@@ -13,10 +13,8 @@ function computerPlay(){
 function playRound(player, computer){
     console.log("Player choice : " + player);
     console.log("Computer choice : " + computer);
+    console.log("**************");
     let result = "";
-    let user = 0;
-    let cpu = 0;
-    let draw = 0;
 
     if(player == 'rock' && computer == 'scissor'){
         result = "Rock beats Scissors, you WIN!!!";
@@ -49,46 +47,40 @@ function playRound(player, computer){
     }
     else{
         result = "Its a DRAW!!";
-        draw++;
     }
 
-        console.log(result);
-        return arrayFromArgs(user, cpu, draw);
+        alert(result + " score : " + user);
 }
 
-//return round results as an array
-function arrayFromArgs() {
-    let results = [];
-    for (let i = 0; i < arguments.length; i++) {
-        results.push(arguments[i]);
-    }
-    return results;
-}
-
-//play rock/paper/scissor 5 times and declare the winner
 function game(){
-let wins = 0;
-let looses = 0;
-let draws = 0;
-    for(let i = 0; i<5; i++){
-        let playerSelection = prompt("Please enter your choice", "Rock / Paper / Scissor").toLowerCase();
-        let computerSelection = computerPlay();
-        let score = playRound(playerSelection, computerSelection);
-        wins += score[0];
-        looses += score[1];
-        draws += score[2];
-        console.log(" ");
+    const rockBtn = document.querySelector('.rock');
+    const paperBtn = document.querySelector('.paper');
+    const scissorBtn = document.querySelector('.scissor');
+    var result = document.getElementById('result');
+    const playerOptions = [rockBtn,paperBtn,scissorBtn];
+
+    for(let i=0; i<playerOptions.length; i++){
+        playerOptions[i].addEventListener('click', function (){
+            if(user < 5 && cpu < 5){
+                playRound(playerOptions[i].value, computerPlay());
+                result.textContent = "User Score : " + user + " Computer Score : "+ cpu;
+            }
+            else if(user == 5 ){
+                alert("Congratulation!! you wind!! Reload page to play again!!");
+                rockBtn.disabled = true;
+                paperBtn.disabled = true;
+                scissorBtn.disabled = true;
+            }
+            else if(cpu == 5){
+                alert("Sorry! you loose!! Reload page to play again!!");
+                rockBtn.disabled = true;
+                paperBtn.disabled = true;
+                scissorBtn.disabled = true;
+            }
+        });
     }
-
-    console.log("Wins : " + wins);
-    console.log("Lost : " + looses);
-    console.log("Draws : " + draws);
-
-
-    (wins > looses) ? console.log("Congratulations, you WIN!!")
-    : (wins < looses) ? console.log("Sorry, you LOOSE!!")
-    : console.log("It was a DRAW!!");
-
 }
-    
+
+var user = 0;
+var cpu = 0;
 game();

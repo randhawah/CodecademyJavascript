@@ -1,6 +1,16 @@
 console.log("-------------Lets Play Rock, Paper, Scissor!-------------");
 console.log(" ");
 
+const rockBtn = document.querySelector('.rock');
+const paperBtn = document.querySelector('.paper');
+const scissorBtn = document.querySelector('.scissor');
+var result = document.getElementById('result');
+var roundTxt = document.getElementById('roundTxt');
+var user = 0;
+var cpu = 0;
+    
+const playerOptions = [rockBtn,paperBtn,scissorBtn];
+
 //computer picks rock/paper/scissor
 function computerPlay(){
     const choice = ["Rock", "Paper", "Scissor"];
@@ -49,16 +59,10 @@ function playRound(player, computer){
         result = "Its a DRAW!!";
     }
 
-        alert(result + " score : " + user);
+    roundTxt.textContent = result;
 }
 
 function game(){
-    const rockBtn = document.querySelector('.rock');
-    const paperBtn = document.querySelector('.paper');
-    const scissorBtn = document.querySelector('.scissor');
-    var result = document.getElementById('result');
-    const playerOptions = [rockBtn,paperBtn,scissorBtn];
-
     for(let i=0; i<playerOptions.length; i++){
         playerOptions[i].addEventListener('click', function (){
             if(user < 5 && cpu < 5){
@@ -66,13 +70,13 @@ function game(){
                 result.textContent = "User Score : " + user + " Computer Score : "+ cpu;
             }
             else if(user == 5 ){
-                alert("Congratulation!! you wind!! Reload page to play again!!");
+                roundTxt.textContent = "Congratulations!! you WIN!! Reload page to play again!!";
                 rockBtn.disabled = true;
                 paperBtn.disabled = true;
                 scissorBtn.disabled = true;
             }
             else if(cpu == 5){
-                alert("Sorry! you loose!! Reload page to play again!!");
+                roundTxt.textContent = "Sorry!! you LOOSE!! Reload page to play again!!";
                 rockBtn.disabled = true;
                 paperBtn.disabled = true;
                 scissorBtn.disabled = true;
@@ -81,6 +85,4 @@ function game(){
     }
 }
 
-var user = 0;
-var cpu = 0;
 game();

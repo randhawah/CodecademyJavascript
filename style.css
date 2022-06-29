@@ -21,17 +21,17 @@ h1{
 }
 
 .rock{
-    background: url('/images/rock.png');
+    background: url('images/rock.png');
     background-size: 100%;
 }
 
 .paper{
-    background: url('/images/paper.png');
+    background: url('images/paper.png');
     background-size: 100%;
 }
 
 .scissor{
-    background: url('/images/scissor.png');
+    background: url('images/scissor.png');
     background-size: 100%;
 }
 
